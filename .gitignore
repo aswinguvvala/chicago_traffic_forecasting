@@ -1,0 +1,35 @@
+# ML Model files (too large for GitHub)
+models/saved_models/
+models/trained_demand_model*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (optional - comment out if you want to include them)
+# *.csv
+# *.json

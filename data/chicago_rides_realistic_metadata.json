@@ -1,0 +1,63 @@
+{
+  "generation_date": "2025-09-07T02:02:03.636302",
+  "total_records": 120000,
+  "date_range": {
+    "start": "2024-01-01T00:05:00",
+    "end": "2024-12-30T23:59:00"
+  },
+  "locations": [
+    "Magnificent Mile",
+    "Loop",
+    "O'Hare Airport",
+    "Logan Square",
+    "Chinatown",
+    "Hyde Park",
+    "Navy Pier",
+    "Lincoln Park",
+    "Wicker Park",
+    "Lakeview"
+  ],
+  "weather_conditions": [
+    "snow",
+    "cloudy",
+    "heavy_rain",
+    "light_rain",
+    "clear",
+    "fog"
+  ],
+  "features": {
+    "temporal": [
+      "hour",
+      "day_of_week",
+      "month",
+      "is_weekend",
+      "is_rush_hour"
+    ],
+    "spatial": [
+      "pickup_latitude",
+      "pickup_longitude",
+      "distance_from_loop"
+    ],
+    "contextual": [
+      "weather_condition",
+      "special_event",
+      "season"
+    ],
+    "cyclical": [
+      "hour_sin",
+      "hour_cos",
+      "day_sin",
+      "day_cos"
+    ],
+    "derived": [
+      "demand_lag_1h",
+      "demand_ma_3h"
+    ]
+  },
+  "statistics": {
+    "avg_demand": 11.8656,
+    "max_demand": "84",
+    "min_demand": "1",
+    "std_demand": 7.430526904561838
+  }
+}
