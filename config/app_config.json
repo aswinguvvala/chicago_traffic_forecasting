@@ -1,0 +1,54 @@
+{
+  "app": {
+    "title": "Uber Demand Forecasting",
+    "subtitle": "ML Engineering Portfolio | Spatial-Temporal Prediction",
+    "refresh_interval_seconds": 30,
+    "demo_mode": true,
+    "show_technical_details": true
+  },
+  "model": {
+    "model_path": "models/trained_demand_model.pt",
+    "input_features": 8,
+    "sequence_length": 10,
+    "prediction_horizon_minutes": 15
+  },
+  "data": {
+    "data_paths": [
+      "data/chicago_demand_aggregated.csv",
+      "data/chicago_tnp_demo_50000.csv"
+    ],
+    "chicago_bounds": {
+      "lat_min": 41.644,
+      "lat_max": 42.023,
+      "lon_min": -87.940,
+      "lon_max": -87.524,
+      "center_lat": 41.8781,
+      "center_lon": -87.6298
+    }
+  },
+  "visualization": {
+    "grid_resolution": 15,
+    "heatmap_colors": {
+      "high_demand": "#ef4444",
+      "medium_demand": "#f59e0b", 
+      "low_demand": "#eab308",
+      "very_low": "#ffffff"
+    },
+    "demand_thresholds": {
+      "high": 40,
+      "medium": 20, 
+      "low": 10
+    }
+  },
+  "business": {
+    "base_price_per_ride": 14.75,
+    "surge_multiplier_max": 2.5,
+    "revenue_increase_target": 15
+  },
+  "external_apis": {
+    "enabled": false,
+    "weather_api_key": null,
+    "uber_api_key": null,
+    "simulate_realistic_patterns": true
+  }
+}

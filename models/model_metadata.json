@@ -1,0 +1,10 @@
+{
+  "version": "ChicagoDemandLSTM-v1.0",
+  "trained_on": "2024-01-15",
+  "status": "loaded_from_checkpoint",
+  "training_info": {
+    "best_val_loss": 1.185897837082545,
+    "epochs_trained": 18
+  },
+  "note": "Model loaded from user checkpoint. Performance metrics to be updated after integration."
+}
