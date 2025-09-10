@@ -245,26 +245,25 @@ st.markdown("""
         }
     }
     
-    /* Chicago Winter Skyline Background */
+    /* Chicago-inspired gradient background */
     .stApp {
         background: linear-gradient(
             135deg,
-            rgba(30, 58, 138, 0.1) 0%,
-            rgba(59, 130, 246, 0.08) 25%,
-            rgba(147, 197, 253, 0.06) 50%,
-            rgba(219, 234, 254, 0.08) 75%,
-            rgba(96, 165, 250, 0.1) 100%
-        ), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/...');
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+            rgba(30, 58, 138, 0.15) 0%,
+            rgba(59, 130, 246, 0.12) 15%,
+            rgba(147, 197, 253, 0.08) 30%,
+            rgba(219, 234, 254, 0.10) 45%,
+            rgba(96, 165, 250, 0.12) 60%,
+            rgba(37, 99, 235, 0.15) 75%,
+            rgba(29, 78, 216, 0.18) 90%,
+            rgba(30, 58, 138, 0.20) 100%
+        );
         min-height: 100vh;
         font-family: 'Inter', sans-serif;
         position: relative;
     }
     
-    /* Background overlay for better readability */
+    /* Enhanced background pattern for Chicago theme */
     .stApp::before {
         content: '';
         position: fixed;
@@ -272,52 +271,51 @@ st.markdown("""
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.85) 0%,
-            rgba(248, 250, 252, 0.8) 25%,
-            rgba(241, 245, 249, 0.75) 50%,
-            rgba(248, 250, 252, 0.8) 75%,
-            rgba(255, 255, 255, 0.85) 100%
-        );
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(219, 234, 254, 0.08) 0%, transparent 50%),
+            linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.85) 0%,
+                rgba(248, 250, 252, 0.8) 25%,
+                rgba(241, 245, 249, 0.75) 50%,
+                rgba(248, 250, 252, 0.8) 75%,
+                rgba(255, 255, 255, 0.85) 100%
+            );
         z-index: -1;
         pointer-events: none;
     }
     
-    /* Dark mode background overlay */
-    [data-theme="dark"] .stApp::before {
+    /* Dark mode background */
+    [data-theme="dark"] .stApp {
         background: linear-gradient(
             135deg,
-            rgba(17, 24, 39, 0.9) 0%,
-            rgba(31, 41, 55, 0.85) 25%,
-            rgba(55, 65, 81, 0.8) 50%,
-            rgba(75, 85, 99, 0.85) 75%,
-            rgba(31, 41, 55, 0.9) 100%
+            rgba(17, 24, 39, 0.95) 0%,
+            rgba(31, 41, 55, 0.90) 15%,
+            rgba(55, 65, 81, 0.85) 30%,
+            rgba(75, 85, 99, 0.90) 45%,
+            rgba(31, 41, 55, 0.95) 60%,
+            rgba(17, 24, 39, 0.98) 75%,
+            rgba(15, 23, 42, 1.0) 90%,
+            rgba(17, 24, 39, 1.0) 100%
         );
     }
     
-    /* Alternative: CSS-only Chicago skyline using local file */
-    @media screen {
-        .stApp {
-            background-image: 
-                linear-gradient(
-                    135deg,
-                    rgba(30, 58, 138, 0.1) 0%,
-                    rgba(59, 130, 246, 0.08) 25%,
-                    rgba(147, 197, 253, 0.06) 50%,
-                    rgba(219, 234, 254, 0.08) 75%,
-                    rgba(96, 165, 250, 0.1) 100%
-                ),
-                url('./images/winter_chicago.jpg');
-        }
-    }
-    
-    /* Fallback for mobile */
-    @media screen and (max-width: 768px) {
-        .stApp {
-            background-attachment: scroll;
-            background-size: cover;
-        }
+    /* Dark mode background overlay */
+    [data-theme="dark"] .stApp::before {
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+            linear-gradient(
+                135deg,
+                rgba(17, 24, 39, 0.9) 0%,
+                rgba(31, 41, 55, 0.85) 25%,
+                rgba(55, 65, 81, 0.8) 50%,
+                rgba(75, 85, 99, 0.85) 75%,
+                rgba(31, 41, 55, 0.9) 100%
+            );
     }
     
     .main .block-container {
@@ -1465,6 +1463,46 @@ def get_model_info(trainer):
 
 def main():
     """Clean, simple ML prediction interface"""
+    
+    # Add Chicago background image
+    try:
+        # Create a container for the background image
+        st.markdown("""
+        <style>
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            opacity: 0.15;
+        }
+        .background-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        [data-theme="dark"] .background-container {
+            opacity: 0.08;
+        }
+        </style>
+        <div class="background-container">
+        """, unsafe_allow_html=True)
+        
+        # Load and display the background image
+        import base64
+        with open("images/winter_chicago.jpg", "rb") as img_file:
+            img_base64 = base64.b64encode(img_file.read()).decode()
+        
+        st.markdown(f"""
+        <img src="data:image/jpeg;base64,{img_base64}" alt="Chicago Winter Skyline">
+        </div>
+        """, unsafe_allow_html=True)
+        
+    except Exception as e:
+        # Fallback if image loading fails
+        st.markdown("<!-- Background image not available -->", unsafe_allow_html=True)
     
     # Enhanced Theme toggle with icons
     st.markdown("""
