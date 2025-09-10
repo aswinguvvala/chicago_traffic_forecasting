@@ -245,77 +245,11 @@ st.markdown("""
         }
     }
     
-    /* Chicago-inspired gradient background */
+    /* Background will be set dynamically in main() function */
     .stApp {
-        background: linear-gradient(
-            135deg,
-            rgba(30, 58, 138, 0.15) 0%,
-            rgba(59, 130, 246, 0.12) 15%,
-            rgba(147, 197, 253, 0.08) 30%,
-            rgba(219, 234, 254, 0.10) 45%,
-            rgba(96, 165, 250, 0.12) 60%,
-            rgba(37, 99, 235, 0.15) 75%,
-            rgba(29, 78, 216, 0.18) 90%,
-            rgba(30, 58, 138, 0.20) 100%
-        );
         min-height: 100vh;
         font-family: 'Inter', sans-serif;
         position: relative;
-    }
-    
-    /* Enhanced background pattern for Chicago theme */
-    .stApp::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(219, 234, 254, 0.08) 0%, transparent 50%),
-            linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.85) 0%,
-                rgba(248, 250, 252, 0.8) 25%,
-                rgba(241, 245, 249, 0.75) 50%,
-                rgba(248, 250, 252, 0.8) 75%,
-                rgba(255, 255, 255, 0.85) 100%
-            );
-        z-index: -1;
-        pointer-events: none;
-    }
-    
-    /* Dark mode background */
-    [data-theme="dark"] .stApp {
-        background: linear-gradient(
-            135deg,
-            rgba(17, 24, 39, 0.95) 0%,
-            rgba(31, 41, 55, 0.90) 15%,
-            rgba(55, 65, 81, 0.85) 30%,
-            rgba(75, 85, 99, 0.90) 45%,
-            rgba(31, 41, 55, 0.95) 60%,
-            rgba(17, 24, 39, 0.98) 75%,
-            rgba(15, 23, 42, 1.0) 90%,
-            rgba(17, 24, 39, 1.0) 100%
-        );
-    }
-    
-    /* Dark mode background overlay */
-    [data-theme="dark"] .stApp::before {
-        background: 
-            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.12) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-            linear-gradient(
-                135deg,
-                rgba(17, 24, 39, 0.9) 0%,
-                rgba(31, 41, 55, 0.85) 25%,
-                rgba(55, 65, 81, 0.8) 50%,
-                rgba(75, 85, 99, 0.85) 75%,
-                rgba(31, 41, 55, 0.9) 100%
-            );
     }
     
     .main .block-container {
@@ -354,19 +288,25 @@ st.markdown("""
         border-color: var(--accent-color);
     }
     
-    /* Stunning App Header with Chicago Theme */
+    /* Stunning App Header with Maximum Contrast */
     .app-header {
-        background: var(--bg-card);
-        border: 2px solid var(--border-color);
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 3px solid rgba(59, 130, 246, 0.4) !important;
         border-radius: 20px;
         padding: 3rem 2rem;
         margin-bottom: 3rem;
         text-align: center;
-        box-shadow: var(--card-shadow);
-        backdrop-filter: blur(15px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 6px 20px rgba(59, 130, 246, 0.2) !important;
+        backdrop-filter: blur(25px) !important;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+    }
+    
+    [data-theme="dark"] .app-header {
+        background: rgba(15, 23, 42, 0.98) !important;
+        border: 3px solid rgba(96, 165, 250, 0.5) !important;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(96, 165, 250, 0.3) !important;
     }
     
     .app-header::before {
@@ -387,12 +327,12 @@ st.markdown("""
     
     .app-header:hover {
         transform: translateY(-4px);
-        box-shadow: var(--card-shadow-hover);
-        border-color: var(--accent-color);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(59, 130, 246, 0.25) !important;
+        border-color: var(--accent-color) !important;
     }
     
     .app-title {
-        color: var(--text-primary);
+        color: var(--text-primary) !important;
         font-size: 2.5rem;
         font-weight: 700;
         margin: 0 0 0.5rem 0;
@@ -402,28 +342,36 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         background-clip: text;
         letter-spacing: -0.5px;
+        text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6) !important;
     }
     
     .app-subtitle {
-        color: var(--text-secondary);
+        color: var(--text-secondary) !important;
         font-size: 1.1rem;
         font-weight: 400;
         margin: 0;
         font-style: italic;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4) !important;
     }
     
-    /* Enhanced Control Cards */
+    /* Enhanced Control Cards with Superior Contrast */
     .control-card {
-        background: var(--bg-card);
-        border: 2px solid var(--border-color);
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 2px solid rgba(59, 130, 246, 0.3) !important;
         border-radius: 16px;
         padding: 2rem;
         margin-bottom: 2rem;
-        box-shadow: var(--card-shadow);
-        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(59, 130, 246, 0.15) !important;
+        backdrop-filter: blur(20px) !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
+    }
+    
+    [data-theme="dark"] .control-card {
+        background: rgba(15, 23, 42, 0.95) !important;
+        border: 2px solid rgba(96, 165, 250, 0.4) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(96, 165, 250, 0.2) !important;
     }
     
     .control-card::before {
@@ -440,27 +388,33 @@ st.markdown("""
     
     .control-card:hover {
         transform: translateY(-3px);
-        box-shadow: var(--card-shadow-hover);
-        border-color: var(--accent-color);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(59, 130, 246, 0.25) !important;
+        border-color: var(--accent-color) !important;
     }
     
     .control-card:hover::before {
         opacity: 1;
     }
     
-    /* Spectacular Result Card */
+    /* Spectacular Result Card with Maximum Contrast */
     .result-card {
-        background: var(--bg-card);
-        border: 3px solid var(--border-color);
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 3px solid rgba(59, 130, 246, 0.4) !important;
         border-radius: 24px;
         padding: 3rem 2rem;
         text-align: center;
-        box-shadow: var(--card-shadow-hover);
-        backdrop-filter: blur(20px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(59, 130, 246, 0.2) !important;
+        backdrop-filter: blur(25px) !important;
         margin-top: 2rem;
         position: relative;
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    [data-theme="dark"] .result-card {
+        background: rgba(15, 23, 42, 0.98) !important;
+        border: 3px solid rgba(96, 165, 250, 0.5) !important;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(96, 165, 250, 0.3) !important;
     }
     
     .result-card::before {
@@ -481,8 +435,8 @@ st.markdown("""
     
     .result-card:hover {
         transform: translateY(-6px) scale(1.02);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        border-color: var(--success-color);
+        box-shadow: 0 24px 72px rgba(0, 0, 0, 0.35), 0 12px 36px rgba(59, 130, 246, 0.25) !important;
+        border-color: var(--success-color) !important;
     }
     
     /* Enhanced Prediction Display */
@@ -618,26 +572,30 @@ st.markdown("""
         display: none !important;
     }
     
-    /* Enhanced Text Styling */
+    /* Enhanced Text Styling with Professional Shadows */
     .main h1, .main h2, .main h3, .main h4 {
         color: var(--text-primary) !important;
         font-weight: 600 !important;
         margin-bottom: 1rem !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5) !important;
     }
     
     .main h1 {
         font-size: 2rem !important;
         font-family: 'Roboto Slab', serif !important;
+        text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7) !important;
     }
     
     .main h2 {
         font-size: 1.5rem !important;
         color: var(--accent-color) !important;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6) !important;
     }
     
     .main h3 {
         font-size: 1.25rem !important;
         color: var(--text-accent) !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5) !important;
     }
     
     .main h4 {
@@ -645,15 +603,23 @@ st.markdown("""
         color: var(--text-secondary) !important;
         text-transform: uppercase !important;
         letter-spacing: 0.05em !important;
+        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4) !important;
     }
     
     .main p {
         color: var(--text-primary) !important;
         line-height: 1.6 !important;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3) !important;
     }
     
     .main .metric-value {
         color: var(--text-secondary) !important;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    /* Enhanced readability for all text elements */
+    .stMarkdown, .stText, .element-container {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2) !important;
     }
     
     /* Enhanced Chart Styling */
@@ -673,17 +639,23 @@ st.markdown("""
         box-shadow: var(--card-shadow-hover) !important;
     }
     
-    /* Spectacular Supporting Evidence Section */
+    /* Spectacular Supporting Evidence Section with Perfect Contrast */
     .supporting-evidence {
         margin-top: 3rem;
         padding: 3rem 2rem;
-        background: var(--bg-card);
+        background: rgba(255, 255, 255, 0.96) !important;
         border-radius: 20px;
-        border: 2px solid var(--border-color);
-        box-shadow: var(--card-shadow-hover);
-        backdrop-filter: blur(20px);
+        border: 3px solid rgba(59, 130, 246, 0.4) !important;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(59, 130, 246, 0.2) !important;
+        backdrop-filter: blur(25px) !important;
         position: relative;
         overflow: hidden;
+    }
+    
+    [data-theme="dark"] .supporting-evidence {
+        background: rgba(15, 23, 42, 0.96) !important;
+        border: 3px solid rgba(96, 165, 250, 0.5) !important;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(96, 165, 250, 0.3) !important;
     }
     
     .supporting-evidence::before {
@@ -708,6 +680,7 @@ st.markdown("""
         font-weight: 700 !important;
         margin-bottom: 2rem !important;
         font-family: 'Roboto Slab', serif !important;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5) !important;
     }
     
     /* Loading States and Animations */
@@ -1464,45 +1437,89 @@ def get_model_info(trainer):
 def main():
     """Clean, simple ML prediction interface"""
     
-    # Add Chicago background image
+    # Convert Chicago background image to base64 and inject as CSS background
     try:
-        # Create a container for the background image
-        st.markdown("""
-        <style>
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            opacity: 0.15;
-        }
-        .background-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        [data-theme="dark"] .background-container {
-            opacity: 0.08;
-        }
-        </style>
-        <div class="background-container">
-        """, unsafe_allow_html=True)
-        
-        # Load and display the background image
         import base64
         with open("images/winter_chicago.jpg", "rb") as img_file:
             img_base64 = base64.b64encode(img_file.read()).decode()
         
+        # Inject professional background with perfect overlays
         st.markdown(f"""
-        <img src="data:image/jpeg;base64,{img_base64}" alt="Chicago Winter Skyline">
-        </div>
+        <style>
+        /* Professional Chicago Background Integration */
+        .stApp {{
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(15, 23, 42, 0.85) 0%,
+                    rgba(30, 41, 59, 0.75) 15%,
+                    rgba(51, 65, 85, 0.65) 30%,
+                    rgba(71, 85, 105, 0.70) 45%,
+                    rgba(51, 65, 85, 0.75) 60%,
+                    rgba(30, 41, 59, 0.80) 75%,
+                    rgba(15, 23, 42, 0.85) 100%
+                ),
+                radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.10) 0%, transparent 50%),
+                url('data:image/jpeg;base64,{img_base64}') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-attachment: fixed !important;
+            background-repeat: no-repeat !important;
+            min-height: 100vh !important;
+        }}
+        
+        /* Dark mode background adjustments */
+        [data-theme="dark"] .stApp {{
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(3, 7, 18, 0.92) 0%,
+                    rgba(15, 23, 42, 0.88) 15%,
+                    rgba(30, 41, 59, 0.85) 30%,
+                    rgba(51, 65, 85, 0.88) 45%,
+                    rgba(30, 41, 59, 0.90) 60%,
+                    rgba(15, 23, 42, 0.92) 75%,
+                    rgba(3, 7, 18, 0.95) 100%
+                ),
+                radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                url('data:image/jpeg;base64,{img_base64}') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-attachment: fixed !important;
+            background-repeat: no-repeat !important;
+        }}
+        
+        /* Mobile optimization */
+        @media screen and (max-width: 768px) {{
+            .stApp {{
+                background-attachment: scroll !important;
+                background-position: center top !important;
+            }}
+        }}
+        </style>
         """, unsafe_allow_html=True)
         
     except Exception as e:
-        # Fallback if image loading fails
-        st.markdown("<!-- Background image not available -->", unsafe_allow_html=True)
+        # Fallback with enhanced Chicago-inspired gradients
+        st.markdown("""
+        <style>
+        .stApp {
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(15, 23, 42, 0.95) 0%,
+                    rgba(30, 41, 59, 0.90) 25%,
+                    rgba(51, 65, 85, 0.85) 50%,
+                    rgba(30, 41, 59, 0.90) 75%,
+                    rgba(15, 23, 42, 0.95) 100%
+                ),
+                radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%) !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
     
     # Enhanced Theme toggle with icons
     st.markdown("""
